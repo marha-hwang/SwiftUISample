@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 /**
- 컴포넌트 설명 : 사용자가 가로 스크롤을 하는 경우 정해진 위치에 아이템이 위치하게 되는 컴포넌트
+ 컴포넌트 설명 : 상단에 탭버튼이 존재하고 사용자가 스크롤시 지정된 위치로 이동하는 컴포넌트
  컴포넌트 구조 :
  */
 struct AutoScrollView: View {

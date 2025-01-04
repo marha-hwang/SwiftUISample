@@ -22,20 +22,24 @@ struct CoupangEatsDetail: View {
     
     var body: some View {
         ScrollView{
-            GeometryReader { geometry in
-                let offset = geometry.frame(in: .global).minY
+            ZStack(alignment:.bottomTrailing){
+                InfiniteBanner(items: ["food1", "food2", "food3"])
+                    .frame(height:imageHeight) //프로퍼티의 값이 변화하면 뷰가 자동으로 변화함
+                    .background( //geometry을 추가하면 view에 영향을 주기 때문에 background속성에서 추가하였음
+                        GeometryReader{ geo in
+                            Color.clear
+                                .onChange(of: geo.frame(in: .global).minY) { minY in
+                                    print("현재 Y값\(minY)")
+                                    imageHeight = imageHeight + minY
+                                }
+                        }
+                        
+                    )
                 
-                AutoScrollView()
-            
-//                Image("food1")
-//                    .resizable()
-//                    .scaledToFill()
-//                    .frame(width: UIScreen.main.bounds.width, height: imageHeight + offset)
-//                    .position(x: UIScreen.main.bounds.width/2, y: imageHeight/2-offset) //이미지의 중심축을 기준으로 배치되기 때문에 가로, 세로 절반의 크기를 고정값으로 주었음
+                CircleImage()
+                    .offset(CGSize(width: -10, height: -10))
             }
-            .frame(height: imageHeight)  // 초기 높이 설정
             Text("Detail View")
-            
         }
         .edgesIgnoringSafeArea(.all)
         .navigationBarBackButtonHidden(true)  // 기본 뒤로가기 버튼 숨기기
@@ -77,6 +81,19 @@ struct CoupangEatsDetail: View {
                         .frame(width: 24, height: 24)  // 크기 조정
                 }
             }
+        }
+    }
+}
+
+struct CircleImage:View{
+    var body:some View{
+        ZStack{
+            Circle()
+                .fill(.white)
+                .frame(width: 30, height: 30)
+            Image("photo")  // 커스텀 이미지
+                .resizable()
+                .frame(width: 20, height: 20)  // 크기 조정
         }
     }
 }
