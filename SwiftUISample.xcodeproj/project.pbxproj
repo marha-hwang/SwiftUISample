@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83D179D32D29093000D4C0B2 /* AutoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D179D22D29093000D4C0B2 /* AutoScrollView.swift */; };
 		83DE0DA02D2821EA0023DCC9 /* SwiftUISampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DE0D9F2D2821EA0023DCC9 /* SwiftUISampleApp.swift */; };
 		83DE0DA22D2821EA0023DCC9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DE0DA12D2821EA0023DCC9 /* ContentView.swift */; };
 		83DE0DA42D2821ED0023DCC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83DE0DA32D2821ED0023DCC9 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 		83DE0DB62D2821ED0023DCC9 /* SwiftUISampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DE0DB52D2821ED0023DCC9 /* SwiftUISampleTests.swift */; };
 		83DE0DC02D2821ED0023DCC9 /* SwiftUISampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DE0DBF2D2821ED0023DCC9 /* SwiftUISampleUITests.swift */; };
 		83DE0DC22D2821ED0023DCC9 /* SwiftUISampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DE0DC12D2821ED0023DCC9 /* SwiftUISampleUITestsLaunchTests.swift */; };
+		83DE0DCF2D282BC60023DCC9 /* CoupangEatsDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DE0DCE2D282BC60023DCC9 /* CoupangEatsDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		83D179D22D29093000D4C0B2 /* AutoScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoScrollView.swift; sourceTree = "<group>"; };
 		83DE0D9C2D2821EA0023DCC9 /* SwiftUISample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUISample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83DE0D9F2D2821EA0023DCC9 /* SwiftUISampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUISampleApp.swift; sourceTree = "<group>"; };
 		83DE0DA12D2821EA0023DCC9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,6 +51,7 @@
 		83DE0DBB2D2821ED0023DCC9 /* SwiftUISampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUISampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		83DE0DBF2D2821ED0023DCC9 /* SwiftUISampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUISampleUITests.swift; sourceTree = "<group>"; };
 		83DE0DC12D2821ED0023DCC9 /* SwiftUISampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUISampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		83DE0DCE2D282BC60023DCC9 /* CoupangEatsDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoupangEatsDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,8 @@
 			children = (
 				83DE0D9F2D2821EA0023DCC9 /* SwiftUISampleApp.swift */,
 				83DE0DA12D2821EA0023DCC9 /* ContentView.swift */,
+				83DE0DCE2D282BC60023DCC9 /* CoupangEatsDetail.swift */,
+				83D179D22D29093000D4C0B2 /* AutoScrollView.swift */,
 				83DE0DA32D2821ED0023DCC9 /* Assets.xcassets */,
 				83DE0DA82D2821ED0023DCC9 /* Persistence.swift */,
 				83DE0DAA2D2821ED0023DCC9 /* SwiftUISample.xcdatamodeld */,
@@ -263,8 +269,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83D179D32D29093000D4C0B2 /* AutoScrollView.swift in Sources */,
 				83DE0DA92D2821ED0023DCC9 /* Persistence.swift in Sources */,
 				83DE0DA22D2821EA0023DCC9 /* ContentView.swift in Sources */,
+				83DE0DCF2D282BC60023DCC9 /* CoupangEatsDetail.swift in Sources */,
 				83DE0DA02D2821EA0023DCC9 /* SwiftUISampleApp.swift in Sources */,
 				83DE0DAC2D2821ED0023DCC9 /* SwiftUISample.xcdatamodeld in Sources */,
 			);
@@ -438,6 +446,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -467,6 +476,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
