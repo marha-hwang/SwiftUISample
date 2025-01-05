@@ -53,6 +53,7 @@ struct InfiniteBanner:View{
                         .offset(x:10, y:-10)
                 )
         }
+        .frame(height:300)
     }
 }
 

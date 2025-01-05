@@ -18,6 +18,9 @@ struct ContentView: View {
                 }
                 Section(header:Text("뷰 컴포넌트 모음")){
                     NavigationLink("자동 스크롤뷰", destination: AutoScrollView())
+                    NavigationLink("무한배너", destination:
+                                    InfiniteBanner(items: ["food1", "food2", "food3"]))
+                    NavigationLink("줌 스크롤", destination: ScrollZoom())
                 }
             }
             .navigationTitle("SwiftUI Sample")
