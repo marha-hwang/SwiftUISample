@@ -21,6 +21,7 @@ struct ContentView: View {
                     NavigationLink("무한배너", destination:
                                     InfiniteBanner(items: ["food1", "food2", "food3"]))
                     NavigationLink("줌 스크롤", destination: ScrollZoom())
+                    NavigationLink("StickyHeader", destination: StickyHeader())
                 }
             }
             .navigationTitle("SwiftUI Sample")

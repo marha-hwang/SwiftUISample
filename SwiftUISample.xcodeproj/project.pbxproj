@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		83BA9FEA2D2ABBFF00027971 /* ScrollZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BA9FE92D2ABBFF00027971 /* ScrollZoom.swift */; };
+		83BA9FEC2D2BEF3900027971 /* StickyHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BA9FEB2D2BEF3900027971 /* StickyHeader.swift */; };
 		83D179D32D29093000D4C0B2 /* AutoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D179D22D29093000D4C0B2 /* AutoScrollView.swift */; };
 		83D179D52D29601100D4C0B2 /* InfiniteBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D179D42D29601100D4C0B2 /* InfiniteBanner.swift */; };
 		83DE0DA02D2821EA0023DCC9 /* SwiftUISampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DE0D9F2D2821EA0023DCC9 /* SwiftUISampleApp.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		83BA9FE92D2ABBFF00027971 /* ScrollZoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollZoom.swift; sourceTree = "<group>"; };
+		83BA9FEB2D2BEF3900027971 /* StickyHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeader.swift; sourceTree = "<group>"; };
 		83D179D22D29093000D4C0B2 /* AutoScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoScrollView.swift; sourceTree = "<group>"; };
 		83D179D42D29601100D4C0B2 /* InfiniteBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteBanner.swift; sourceTree = "<group>"; };
 		83DE0D9C2D2821EA0023DCC9 /* SwiftUISample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUISample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +114,7 @@
 				83D179D22D29093000D4C0B2 /* AutoScrollView.swift */,
 				83D179D42D29601100D4C0B2 /* InfiniteBanner.swift */,
 				83BA9FE92D2ABBFF00027971 /* ScrollZoom.swift */,
+				83BA9FEB2D2BEF3900027971 /* StickyHeader.swift */,
 				83DE0DA32D2821ED0023DCC9 /* Assets.xcassets */,
 				83DE0DA82D2821ED0023DCC9 /* Persistence.swift */,
 				83DE0DAA2D2821ED0023DCC9 /* SwiftUISample.xcdatamodeld */,
@@ -275,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83BA9FEC2D2BEF3900027971 /* StickyHeader.swift in Sources */,
 				83D179D32D29093000D4C0B2 /* AutoScrollView.swift in Sources */,
 				83DE0DA92D2821ED0023DCC9 /* Persistence.swift in Sources */,
 				83D179D52D29601100D4C0B2 /* InfiniteBanner.swift in Sources */,
