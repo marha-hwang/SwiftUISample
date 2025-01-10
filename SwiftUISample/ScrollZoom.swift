@@ -49,50 +49,6 @@ struct ScrollZoom:View{
             
         }
         .edgesIgnoringSafeArea(.all)
-        
-//        ScrollView{
-//            Image("food2")
-//                .resizable()
-//                .frame(height:imageHeight)
-//                //position은 중심축을 기준으로 잡히는듯함
-//                .position(x:UIScreen.main.bounds.midX, y:imageY)
-//            //내부 뷰의 위치나 크기를 조정하기 위해 상위 뷰의 레이아웃 정보를 알아내기 위해 사용
-//                .background(GeometryReader{ geo in
-//                    Color.clear
-//                        .onChange(of: geo.frame(in: .global).minY) { newMinY in
-//                            let offset = max(newMinY, 0) // 음수 값 방지
-//                            let newHeight = max(300 + offset, 300)
-//                            let newY = newHeight/2
-//                            
-//                            if newMinY >= 0 {
-//                                imageHeight = newHeight
-//                                imageY = newY
-//                                print("\(newHeight), \(newY)")
-//                            }
-//                            else{
-//                                imageY = newMinY
-//                            }
-//                        }
-//                })
-//            GeometryReader{ geo in
-//                Text("음식점 상세화면")
-//                    .position(x:geo.size.width/2, y:400)
-//                
-//                .onChange(of: geo.frame(in: .global).minY) { newMinY in
-//                    let offset = max(newMinY, 0) // 음수 값 방지
-//                    let newHeight = max(300 + offset, 300)
-//                    let newY = newHeight/2
-//                    
-//                    if newMinY >= 0 {
-//                        imageHeight = newHeight
-//                        imageY = newY
-//                        print("\(newHeight), \(newY)")
-//                    }
-//                    else{
-//                        imageY = newMinY
-//                    }
-//                }
-//            }
     }
 }
 
