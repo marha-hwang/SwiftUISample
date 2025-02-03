@@ -23,6 +23,9 @@ struct ContentView: View {
                     NavigationLink("줌 스크롤", destination: ScrollZoom())
                     NavigationLink("StickyHeader", destination: StickyHeader())
                 }
+                Section(header:Text("코드 샘플 모음")){
+                    NavigationLink("@Stat @Binding", destination: AutoScrollView())
+                }
             }
             .navigationTitle("SwiftUI Sample")
         }
