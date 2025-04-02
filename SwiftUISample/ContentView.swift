@@ -10,6 +10,8 @@ import CoreData
 
 struct ContentView: View {
 
+    @State var height:CGFloat = 300
+    
     var body: some View {
         NavigationView{
             List{
@@ -19,8 +21,8 @@ struct ContentView: View {
                 Section(header:Text("뷰 컴포넌트 모음")){
                     NavigationLink("자동 스크롤뷰", destination: AutoScrollView())
                     NavigationLink("무한배너", destination:
-                                    InfiniteBanner(items: ["food1", "food2", "food3"]))
-                    NavigationLink("줌 스크롤", destination: ScrollZoom())
+                                    InfiniteBanner(height: $height, items: ["food1", "food2", "food3"]))
+                    NavigationLink("줌 스크롤", destination: ScrollZoomView())
                     NavigationLink("StickyHeader", destination: StickyHeader())
                 }
                 Section(header:Text("코드 샘플 모음")){
@@ -35,5 +37,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    ContentView()
 }

@@ -14,7 +14,7 @@ struct StateBinding:View {
     
     var body: some View {
         
-        Text(String(count))
+        BindingView(count: $count)
         
         Button("Add Value"){
             count += 1
@@ -33,5 +33,5 @@ struct BindingView:View {
 }
 
 #Preview {
-    StateBinding().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    StateBinding()
 }

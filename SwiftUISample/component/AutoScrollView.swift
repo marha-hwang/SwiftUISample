@@ -163,5 +163,5 @@ struct CustomText:View{
 }
 
 #Preview {
-    AutoScrollView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    AutoScrollView()
 }

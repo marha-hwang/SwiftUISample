@@ -18,29 +18,44 @@ import SwiftUI
 
 struct CoupangEatsDetail: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @State private var imageHeight: CGFloat = 300  // 초기 이미지 높이
+
+    @State var imageHeight: CGFloat = 300 // 이미지 초기 높이
+    @State private var imageY:CGFloat = 300/2 //이미지 y좌표
     
     var body: some View {
         ScrollView{
+            GeometryReader{ geo in
+                VStack{
+                    Text("aaa")
+                        .background(Color.white)
+                }
+                .position(x:UIScreen.main.bounds.midX, y:300+10)
+                .onChange(of: geo.frame(in: .global).minY){ minY in
+                    if minY >= 0 {
+                        imageHeight = 300+minY
+                        imageY = imageHeight/2
+                    }
+                    else{
+                        imageY = 150+minY
+                    }
+                    
+                }
+
+            }
+            .frame(width:UIScreen.main.bounds.width, height: 1500)
+        }
+        .background(Color.gray)
+        .overlay{
             ZStack(alignment:.bottomTrailing){
-                InfiniteBanner(items: ["food1", "food2", "food3"])
-                    .frame(height:imageHeight) //프로퍼티의 값이 변화하면 뷰가 자동으로 변화함
-                    .background( //geometry을 추가하면 view에 영향을 주기 때문에 background속성에서 추가하였음
-                        GeometryReader{ geo in
-                            Color.clear
-                                .onChange(of: geo.frame(in: .global).minY) { minY in
-                                    print("현재 Y값\(minY)")
-                                    imageHeight = imageHeight + minY
-                                }
-                        }
-                        
-                    )
-                
+                InfiniteBanner(height: $imageHeight, items: ["food1", "food2", "food3"])
+                    .background(Color.black)
                 CircleImage()
                     .offset(CGSize(width: -10, height: -10))
             }
-            Text("Detail View")
+            .frame(height:imageHeight)
+            .position(x:UIScreen.main.bounds.midX, y:imageY)
         }
+
         .edgesIgnoringSafeArea(.all)
         .navigationBarBackButtonHidden(true)  // 기본 뒤로가기 버튼 숨기기
         .toolbar {
@@ -99,5 +114,5 @@ struct CircleImage:View{
 }
 
 #Preview {
-    ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    CoupangEatsDetail()
 }

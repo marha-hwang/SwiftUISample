@@ -79,5 +79,5 @@ struct Header:View {
 }
 
 #Preview {
-    StickyHeader().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    StickyHeader()
 }

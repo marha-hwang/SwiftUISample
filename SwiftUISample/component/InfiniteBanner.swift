@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct InfiniteBanner:View{
+    @Binding var height:CGFloat
     
     var items:[String]
     @State var currentTab = 0
@@ -53,10 +54,7 @@ struct InfiniteBanner:View{
                         .offset(x:10, y:-10)
                 )
         }
-        .frame(height:300)
+        .frame(height:height)
     }
 }
 
-#Preview {
-    InfiniteBanner(items: ["food1", "food2", "food3"]).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-}
