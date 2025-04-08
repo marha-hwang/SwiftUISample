@@ -16,6 +16,7 @@ struct ContentView: View {
         NavigationView{
             List{
                 Section(header: Text("타앱 디자인 모음")){
+                    NavigationLink("SOOP 로그인 화면", destination: SoopLogin())
                     NavigationLink("쿠팡이츠 음식점 상세화면", destination: CoupangEatsDetail())
                 }
                 Section(header:Text("뷰 컴포넌트 모음")){

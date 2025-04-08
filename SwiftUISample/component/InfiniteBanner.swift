@@ -23,9 +23,11 @@ struct InfiniteBanner:View{
             TabView(selection:$currentTab){ //selection에 현재뷰의 태그값이 할당된다.
                 Image(items[previousIndex])
                     .resizable()
+                    .scaledToFit()
                     .tag(-1)
                 Image(items[currentIndex])
                     .resizable()
+                    .scaledToFit()
                     .tag(0)
                     .onDisappear{
                         previousIndex = currentIndex
@@ -58,3 +60,6 @@ struct InfiniteBanner:View{
     }
 }
 
+#Preview {
+    CoupangEatsDetail()
+}

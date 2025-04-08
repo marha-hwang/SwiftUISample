@@ -25,10 +25,14 @@ struct ScrollZoomView:View{
             ScrollView{
                 GeometryReader{ geo in
                     VStack{
+                        Image("food2")
+                            .resizable()
+                            .frame(height:imageHeight)
+                            .position(x:UIScreen.main.bounds.midX, y:300/2)
+
                         Text("aaa")
-                            .background(Color.white)
+                            .position(x:UIScreen.main.bounds.midX, y:imageY/2)
                     }
-                    .position(x:UIScreen.main.bounds.midX, y:300+10)
                     .onChange(of: geo.frame(in: .global).minY){ minY in
                         if minY >= 0 {
                             imageHeight = 300+minY
@@ -43,13 +47,8 @@ struct ScrollZoomView:View{
                 }
                 .frame(width:UIScreen.main.bounds.width, height: 1500)
             }
-            .overlay{
-                Image("food2")
-                    .resizable()
-                    .frame(height:imageHeight)
-                    .position(x:UIScreen.main.bounds.midX, y:imageY)
-            }
-        .edgesIgnoringSafeArea(.all)
+            .padding(.top, 0)
+            .edgesIgnoringSafeArea(.all)
     }
 }
 

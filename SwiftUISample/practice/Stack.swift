@@ -12,13 +12,9 @@ struct StackView:View {
     
     var body: some View {
         HStack{
-            Rectangle()
-                .stroke(Color.primary)
-                .frame(width: 50, height: 50)
-                .offset(x: 0, y: 100)
+            Color.red
         }
-        .frame(width: 300, height: 300)
-        .background(Color.gray)
+        .edgesIgnoringSafeArea(.top)
     }
 }
 
