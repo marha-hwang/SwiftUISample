@@ -23,7 +23,6 @@ struct SoopLogin:View {
 }
     
 struct LoginView: View {
-    
     @Binding var isPresented:Bool
     @State private var inputText: String = ""  // 입력된 텍스트를 저장할 상태 변수
 
@@ -37,8 +36,9 @@ struct LoginView: View {
                             .resizable()
                             .frame(width: 15, height: 15)
                             .foregroundColor(.white)  // 빨간색으로 설정
-                    .padding(EdgeInsets(top:20, leading: 30, bottom: 40, trailing: 30))
+                    .padding(EdgeInsets(top:20, leading: 30, bottom: 0, trailing: 30))
             }
+            Spacer().frame(height: 40)
             
             // 중앙에 배치될 로그인박스
             VStack{
@@ -46,22 +46,61 @@ struct LoginView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 200, height: 100)
+                
+                Spacer().frame(height: 10)
                     
                 Text("로그인 후 더 많은 서비스를 즐겨보세요.")
                     .font(.system(size:15))
                     .foregroundColor(.white)
                 
-                TextField("아이디", text: $inputText)  // 텍스트 필드
-//                    .padding()  // 여백
-                    .textFieldStyle(RoundedBorderTextFieldStyle())  // 텍스트 필드 스타일 지정
-                    .frame(width: 300)  // 텍스트 필드 크기
+                Spacer().frame(height: 25)
+                
+                HStack{
+                    Spacer().frame(width: 30)
+                    HStack{
+                        TextField("아이디", text: $inputText)  // 텍스트 필드
+                            .background(Color.black)
+                            .foregroundStyle(Color.white)
+                    }
+                    .padding(EdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 0))
+                    .background(Color.black).brightness(0.10).cornerRadius(10)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(Color.blue, lineWidth: 2)
+                    )
+                    Spacer().frame(width: 30)
+                    
+                }
+                
+                Spacer().frame(height: 25)
+                
+                HStack{
+                    Spacer().frame(width: 30)
+                    HStack{
+                        TextField("비밀번호", text: $inputText)  // 텍스트 필드
+                            .background(Color.black)
+                            .foregroundStyle(Color.white)
+                    }
+                    .padding(EdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 0))
+                    .background(Color.black).brightness(0.10).cornerRadius(10)
+//                    .overlay(
+//                        RoundedRectangle(cornerRadius: 12)
+//                            .stroke(Color.blue, lineWidth: 2)
+//                    )
+                    Spacer().frame(width: 30)
+                    
+                }
+                
             }
 
-            Color.clear
-//                .ignoresSafeArea(.all)
+            Spacer()
         }
-        .background(Color(hex: "#000000").brightness(0.15))
-        .ignoresSafeArea(.all)
+        .background(Color(hex: "#0d1b2a").brightness(0.10))
+        .ignoresSafeArea(.container, edges: [.bottom])
+        .background(
+            Color(hex: "#0d1b2a").brightness(0.10)
+                .ignoresSafeArea()
+        )
         
         
 //        .opacity(0.5) // 50% 투명도
