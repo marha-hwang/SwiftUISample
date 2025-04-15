@@ -24,6 +24,9 @@ struct SoopLogin:View {
     
 struct LoginView: View {
     @Binding var isPresented:Bool
+    
+    @FocusState private var isLogin:Bool
+    @FocusState private var isPassword:Bool
     @State private var inputText: String = ""  // 입력된 텍스트를 저장할 상태 변수
 
     var body: some View {
@@ -64,6 +67,7 @@ struct LoginView: View {
                     }
                     .padding(EdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 0))
                     .background(Color.black).brightness(0.10).cornerRadius(10)
+                    .focused($isLogin)
                     .overlay(
                         RoundedRectangle(cornerRadius: 12)
                             .stroke(Color.blue, lineWidth: 2)
@@ -72,7 +76,7 @@ struct LoginView: View {
                     
                 }
                 
-                Spacer().frame(height: 25)
+                Spacer().frame(height: 15)
                 
                 HStack{
                     Spacer().frame(width: 30)
@@ -88,10 +92,74 @@ struct LoginView: View {
 //                            .stroke(Color.blue, lineWidth: 2)
 //                    )
                     Spacer().frame(width: 30)
-                    
+                }
+                
+                Spacer().frame(height:20)
+                
+                HStack{
+                    Spacer()
+                    Text("로그인")
+                        .font(.system(size:17))
+                        .foregroundColor(.white)
+                    Spacer()
+                }
+                .frame(height: 40)
+                .background(
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(Color.blue)
+                )
+                .padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 30))
+                
+                Spacer().frame(height: 30)
+                
+                HStack{
+                    Image("soop_logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 30, height: 30)
+                        .background(
+                            Circle().fill(Color.yellow).frame(width: 45, height: 45)
+                        )
+                    Spacer()
+                    Image("soop_logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 30, height: 30)
+                        .background(
+                            Circle().fill(Color.yellow).frame(width: 45, height: 45)
+                        )
+                    Spacer()
+                    Image("soop_logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 30, height: 30)
+                        .background(
+                            Circle().fill(Color.yellow).frame(width: 45, height: 45)
+                        )
+                    Spacer()
+                    Image("soop_logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 30, height: 30)
+                        .background(
+                            Circle().fill(Color.yellow).frame(width: 45, height: 45)
+                        )
+                }
+                .padding(EdgeInsets(top: 0, leading: 60, bottom: 0, trailing: 60))
+                
+                Spacer().frame(height: 40)
+                
+                HStack(spacing:10){
+                    Text("아이디찾기").font(.system(size:12)).foregroundColor(.white)
+                    Text("|").font(.system(size:12)).foregroundColor(.white)
+                    Text("비밀번호찾기").font(.system(size:12)).foregroundColor(.white)
+                    Text("|").font(.system(size:12)).foregroundColor(.white)
+                    Text("회원가입").font(.system(size:12)).foregroundColor(.white)
                 }
                 
             }
+            
+            
 
             Spacer()
         }
@@ -102,12 +170,6 @@ struct LoginView: View {
                 .ignoresSafeArea()
         )
         
-        
-//        .opacity(0.5) // 50% 투명도
-//        .brightness(0.2) // 밝기를 20% 증가
-//        .saturation(0.5) // 채도를 50% 감소
-//        .hueRotation(.degrees(90)) // 색조를 90도 회전
-//        .shadow(color: .gray, radius: 5, x: -3, y: -3)
     }
 }
 
