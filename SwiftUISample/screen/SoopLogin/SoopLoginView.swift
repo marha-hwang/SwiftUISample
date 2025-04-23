@@ -5,8 +5,18 @@
 //  Created by haram on 4/7/25.
 //
 
+/*
+ 해야할것
+ 1. 연속터치 막기
+ 2. 로그인 버튼 터치 후 입력 검증하여 alert띄우기
+ 3. 버튼 눌러지는 UX추가하기
+ 4. 키보드 자동 띄우기
+ 4. 코드 정리하기
+ */
+
 import Foundation
 import SwiftUI
+import Combine
 struct SoopLogin:View {
     @State private var isPresented = true
     
@@ -21,13 +31,12 @@ struct SoopLogin:View {
         }
     }
 }
-    
+
 struct LoginView: View {
-    @Binding var isPresented:Bool
     
-    @FocusState private var isLogin:Bool
-    @FocusState private var isPassword:Bool
-    @State private var inputText: String = ""  // 입력된 텍스트를 저장할 상태 변수
+    @Binding var isPresented:Bool
+    @StateObject private var viewModel = SoopLoginViewModel()
+    @FocusState private var focusedField: Field?
 
     var body: some View {
         VStack(alignment:.center) {
@@ -61,16 +70,23 @@ struct LoginView: View {
                 HStack{
                     Spacer().frame(width: 30)
                     HStack{
-                        TextField("아이디", text: $inputText)  // 텍스트 필드
+                        TextField("아이디", text: $viewModel.idField)  // 텍스트 필드
+                            .focused($focusedField, equals: .id)
                             .background(Color.black)
                             .foregroundStyle(Color.white)
                     }
                     .padding(EdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 0))
                     .background(Color.black).brightness(0.10).cornerRadius(10)
-                    .focused($isLogin)
+                    .onTapGesture {
+                        viewModel.didTouchIDField()
+                    }
                     .overlay(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(Color.blue, lineWidth: 2)
+                        Group{
+                            if viewModel.isLogin{
+                                RoundedRectangle(cornerRadius: 12)
+                                    .stroke(Color.blue, lineWidth: 2)
+                            }
+                        }
                     )
                     Spacer().frame(width: 30)
                     
@@ -81,16 +97,24 @@ struct LoginView: View {
                 HStack{
                     Spacer().frame(width: 30)
                     HStack{
-                        TextField("비밀번호", text: $inputText)  // 텍스트 필드
+                        TextField("비밀번호", text: $viewModel.passwordField)  // 텍스트 필드
+                            .focused($focusedField, equals: .password)
                             .background(Color.black)
                             .foregroundStyle(Color.white)
                     }
                     .padding(EdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 0))
                     .background(Color.black).brightness(0.10).cornerRadius(10)
-//                    .overlay(
-//                        RoundedRectangle(cornerRadius: 12)
-//                            .stroke(Color.blue, lineWidth: 2)
-//                    )
+                    .onTapGesture {
+                        viewModel.didTouchPasswordField()
+                    }
+                    .overlay(
+                        Group{
+                            if viewModel.isPassword{
+                                RoundedRectangle(cornerRadius: 12)
+                                    .stroke(Color.blue, lineWidth: 2)
+                            }
+                        }
+                    )
                     Spacer().frame(width: 30)
                 }
                 
@@ -105,45 +129,56 @@ struct LoginView: View {
                 }
                 .frame(height: 40)
                 .background(
-                    RoundedRectangle(cornerRadius: 12)
-                        .fill(Color.blue)
+                    Group{
+                        if viewModel.isActivateLogin{
+                            RoundedRectangle(cornerRadius: 12)
+                                .fill(Color.blue)
+                        }
+                        else {
+                            RoundedRectangle(cornerRadius: 12)
+                                .fill(Color.gray)
+                        }
+                    }
+
                 )
                 .padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 30))
                 
                 Spacer().frame(height: 30)
                 
                 HStack{
-                    Image("soop_logo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 30, height: 30)
-                        .background(
-                            Circle().fill(Color.yellow).frame(width: 45, height: 45)
-                        )
-                    Spacer()
-                    Image("soop_logo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 30, height: 30)
-                        .background(
-                            Circle().fill(Color.yellow).frame(width: 45, height: 45)
-                        )
-                    Spacer()
-                    Image("soop_logo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 30, height: 30)
-                        .background(
-                            Circle().fill(Color.yellow).frame(width: 45, height: 45)
-                        )
-                    Spacer()
-                    Image("soop_logo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 30, height: 30)
-                        .background(
-                            Circle().fill(Color.yellow).frame(width: 45, height: 45)
-                        )
+                    Group{
+                        Image("soop_logo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 30, height: 30)
+                            .background(
+                                Circle().fill(Color.yellow).frame(width: 45, height: 45)
+                            )
+                        Spacer()
+                        Image("soop_logo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 30, height: 30)
+                            .background(
+                                Circle().fill(Color.yellow).frame(width: 45, height: 45)
+                            )
+                        Spacer()
+                        Image("soop_logo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 30, height: 30)
+                            .background(
+                                Circle().fill(Color.yellow).frame(width: 45, height: 45)
+                            )
+                        Spacer()
+                        Image("soop_logo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 30, height: 30)
+                            .background(
+                                Circle().fill(Color.yellow).frame(width: 45, height: 45)
+                            )
+                    }
                 }
                 .padding(EdgeInsets(top: 0, leading: 60, bottom: 0, trailing: 60))
                 
@@ -158,9 +193,6 @@ struct LoginView: View {
                 }
                 
             }
-            
-            
-
             Spacer()
         }
         .background(Color(hex: "#0d1b2a").brightness(0.10))
@@ -169,12 +201,16 @@ struct LoginView: View {
             Color(hex: "#0d1b2a").brightness(0.10)
                 .ignoresSafeArea()
         )
-        
+        .onTapGesture {
+            viewModel.didTouchMainView()
+        }
+        .onReceive(viewModel.$focusedField) { newValue in
+            focusedField = newValue
+        }
+        .onAppear{
+            viewModel.onAppear()
+        }
     }
-}
-
-#Preview {
-    SoopLogin()
 }
 
 
